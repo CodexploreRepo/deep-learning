@@ -1,4 +1,8 @@
-# Tensor Operations
+# Tensor 
+## Tensor Basics
+- `dtype`, `ndim` (rank), and `shape`
+
+## Tensor Operations
 #### Broadcasting
 - Broadcast axes are added to the smaller tensor to match the ndim of the larger tensor for addition those 2 tensors.
   - The smaller tensor is repeated alongside these new axes to match the full shape of the larger tensor
@@ -25,5 +29,15 @@ y = np.concatenate([y]*2, axis=0)
 # y-shape: (2, 5)
 # [[0.72331562 0.86843338 0.6167525  0.70972164 0.17234472]
 #  [0.72331562 0.86843338 0.6167525  0.70972164 0.17234472]]
+```
 
+#### Reshaping
+- Reshaping a tensor means rearranging its rows and columns to match a target shape. 
+```Python
+train_images = train_images.reshape((60000, 28 * 28))
+```
+##### Special Reshaping: Transpose
+- Transposing a matrix means exchanging its rows and its columns
+```Python
+x = np.transpose(x)
 ```

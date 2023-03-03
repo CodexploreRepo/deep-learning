@@ -1,5 +1,5 @@
 # Basics
-- [Tensor operations](./topics/tensor_operations)
+- [Tensor](./topics/tensor.md)
 # Topic Tutorials
 - [Computer Vision](./topics/computer_vision.md)
 - [Table Extraction](./topics/table_extraction.md)

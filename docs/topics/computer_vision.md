@@ -15,13 +15,14 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/64508435/222752853-7b4f9bce-174c-4f54-8c65-4016062f46b0.png"><br>A rank-4 image data tensor</p>
 
 #### Video
+- A video can be understood as a sequence of frames, each frame being a color image (a rank-3 tensor `(height, width, color_ depth)`) 
 - Rank-5 tensors of shape `(samples, frames, height, width, channels)`
   - where each sample is a sequence (of length frames) of images
-
-
-
-#### 1.1.1. Images
-
+  - Example: a 60-second, 144 × 256 YouTube video clip sampled at 4 frames per second would have 240 frames. 
+    - A batch of four such video clips would be stored in a tensor of shape `(4, 240, 144, 256, 3)`. 
+    - That’s a total of 106,168,320 values! If the dtype of the tensor was float32, each value would be stored in 32 bits, so the tensor would represent 405 MB. 
+    - In real life, Videos you encounter are much lighter, because they aren’t stored in float32, and they’re typically compressed by a large factor (such as in the MPEG format).
+    - 
 ### 1.2. List of Datasets
 - **[MNIST](https://keras.io/examples/vision/mnist_convnet/)**: assembled by the National Institute of Standards and Technology (the NIST in MNIST) in the 1980s
   - *Contains*: grayscale images of handwritten digits (28 × 28 pixels) into their 10 categories (0 through 9)

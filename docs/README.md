@@ -1,5 +1,6 @@
 # Basics
 - [Tensor](./topics/tensor.md)
+- [Loss Function](./topics/loss_function.md)
 # Topic Tutorials
 - [Computer Vision](./topics/computer_vision.md)
 - [Table Extraction](./topics/table_extraction.md)

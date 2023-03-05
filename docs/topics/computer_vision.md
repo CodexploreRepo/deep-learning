@@ -24,7 +24,14 @@
     - In real life, Videos you encounter are much lighter, because they aren’t stored in float32, and they’re typically compressed by a large factor (such as in the MPEG format).
     - 
 ### 1.2. List of Datasets
-- **[MNIST](https://keras.io/examples/vision/mnist_convnet/)**: assembled by the National Institute of Standards and Technology (the NIST in MNIST) in the 1980s
+
+| Name | Size |  Contains |
+|---|---|---|---|---|
+| **[MNIST](https://keras.io/examples/vision/mnist_convnet/)**  |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+- : assembled by the National Institute of Standards and Technology (the NIST in MNIST) in the 1980s
   - *Contains*: grayscale images of handwritten digits (28 × 28 pixels) into their 10 categories (0 through 9)
   - A set of 60,000 training images, plus 10,000 test images
-
+- **[K-MNIST or  Kuzushiji-MNIST]([https://keras.io/examples/vision/mnist_convnet/](https://www.tensorflow.org/datasets/catalog/kmnist))**: a drop-in replacement for the MNIST dataset (28x28 grayscale, 70,000 images), provided in the original MNIST format as well as a NumPy format. Since MNIST restricts us to 10 classes, we chose one character to represent each of the 10 rows of Hiragana when creating Kuzushiji-MNIST.
+  - *Contains*: grayscale images of Japanese handwritten digits  

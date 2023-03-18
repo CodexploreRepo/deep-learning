@@ -12,8 +12,8 @@
 ## Order of Batch Norm Layer placement
 - There are two opinions for where the Batch Norm layer should be placed in the architecture — before and after activation.
 - Experience: placing `after` gives better result
-<p align="center"><img src="https://user-images.githubusercontent.com/64508435/226079366-ee4d2ab2-a7c6-4cff-95d1-8e8d9b49ee7b.png"/><br>Batch Norm can be used before or after activation</p>
-![image]()
+<p align="center"><img width=600 src="https://user-images.githubusercontent.com/64508435/226079366-ee4d2ab2-a7c6-4cff-95d1-8e8d9b49ee7b.png"/><br>Batch Norm can be used before or after activation</p>
+
 
 ## How does Batch Norm work?
 - Batch Norm is just another network layer that gets inserted between a hidden layer and the next hidden layer. Its job is to take the outputs from the first hidden layer and normalize them before passing them on as the input of the next hidden layer.

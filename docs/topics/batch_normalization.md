@@ -9,7 +9,13 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/64508435/226077388-dda61fb2-30c9-4c3b-ad9c-ef5128b0b985.png"/><br>The inputs of each hidden layer are the activations from the previous layer, and must also be normalized</p>
 
-## How does Batch Norm work ?
+## Order of Batch Norm Layer placement
+- There are two opinions for where the Batch Norm layer should be placed in the architecture — before and after activation.
+- Experience: placing `after` gives better result
+<p align="center"><img src="https://user-images.githubusercontent.com/64508435/226079366-ee4d2ab2-a7c6-4cff-95d1-8e8d9b49ee7b.png"/><br>Batch Norm can be used before or after activation</p>
+![image]()
+
+## How does Batch Norm work?
 - Batch Norm is just another network layer that gets inserted between a hidden layer and the next hidden layer. Its job is to take the outputs from the first hidden layer and normalize them before passing them on as the input of the next hidden layer.
 - Batch Norm layer also has parameters of its own:
   - **Two learnable parameters**: `beta` and `gamma`.
@@ -45,6 +51,19 @@ Step 5: Moving Average
 - In addition, Batch Norm also keeps a running count of the Exponential Moving Average (EMA) of the `mean` and `variance`. 
 - During training, it simply calculates this EMA but does not do anything with it. 
 - At the end of training, it simply saves this value as part of the layer’s state, for use during the Inference phase.
+
+#### Vector Shapes
+- All feature vectors are computed in a single matrix operation.
+- The values that are involved in computing the vectors for a particular feature are also highlighted in red. 
+- After the forward pass, we do the backward pass as normal. Gradients are calculated and updates are done for all layer weights, as well as for all beta and gamma parameters in the Batch Norm layers.
+<p align="center"><img width=700 src="https://user-images.githubusercontent.com/64508435/226078611-8f3015c5-a738-4667-8778-c5ec48c2b9ba.png"/></p>
+
+### During Inference
+- As we discussed above, during Training, Batch Norm starts by calculating the mean and variance for a mini-batch. However, during Inference, we have a single sample, not a mini-batch. How do we obtain the mean and variance in that case?
+  - That is where the two **Moving Average** parameters come in — the ones that we calculated during training and saved with the model. We use those saved mean and variance values for the Batch Norm during Inference.
+- Ideally, during training, we could have calculated and saved the mean and variance for the full data. But that would be very expensive as we would have to keep values for the full dataset in memory during training. 
+- Instead, the Moving Average acts as a good proxy for the mean and variance of the data. It is much more efficient because the calculation is incremental — we have to remember only the most recent Moving Average.
+<p align="center"><img width=600 src="https://user-images.githubusercontent.com/64508435/226079252-c42cafa5-f750-4588-8e68-76699348d561.png"/></p>
 
 
 ## Reference:

@@ -1,1 +1,1 @@
-# Full-Stack Deep Learning
+# Deep Learning

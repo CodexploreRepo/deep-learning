@@ -1,5 +1,7 @@
 # Deep Learning Training Skeleton
 ## Data Pre-processing
+### Input Data Type
+- Transform input (x, y) data type to a `float32`
 ### Normalizing Input Data
 - When inputting data to a deep learning model, it is standard practice to normalize the data to zero mean and unit variance. 
 - For example, the input data consists of several features x1, x2,…xn. Each feature might have a different range of values. For instance, values for feature x1 might range from 1 through 5, while values for feature x2 might range from 1000 to 99999.

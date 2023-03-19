@@ -27,7 +27,6 @@
     - A batch of four such video clips would be stored in a tensor of shape `(4, 240, 144, 256, 3)`.
     - That’s a total of 106,168,320 values! If the dtype of the tensor was float32, each value would be stored in 32 bits, so the tensor would represent 405 MB.
     - In real life, Videos you encounter are much lighter, because they aren’t stored in float32, and they’re typically compressed by a large factor (such as in the MPEG format).
-    -
 
 ### 1.2. List of Datasets
 

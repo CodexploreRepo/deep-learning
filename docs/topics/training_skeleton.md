@@ -2,6 +2,9 @@
 ## Data Pre-processing
 ### Input Data Type Conversion
 - Transform input (x, y) data type to a `float32`
+- For image: convert pixel from range `[0, 255]` to `[0,1]`
+  - Tensorflow: divide the tensor / 255
+  - Pytorch: `ToTensor()` function will help convert to  
 ### Input Data Normalization
 - When inputting data to a deep learning model, it is standard practice to normalize the data to zero mean and unit variance. 
 - For example, the input data consists of several features x1, x2,…xn. Each feature might have a different range of values. For instance, values for feature x1 might range from 1 through 5, while values for feature x2 might range from 1000 to 99999.
@@ -11,7 +14,7 @@ $$ X_i = (X_i - Mean_i) \over (StdDev_i) $$
 
 <p align="center"><img width="250" src="https://user-images.githubusercontent.com/64508435/226076715-f5974ac9-a1dd-4736-b234-c44bdcc4be3a.png"></p>
 
-- In the picture belowThe original values (in blue) are now centered around zero (in red). This ensures that all the feature values are now on the same scale.
+- In the picture below, The original values (in blue) are now centered around zero (in red). This ensures that all the feature values are now on the same scale.
 <p align="center">
   <img width="400" src="https://user-images.githubusercontent.com/64508435/226076957-cce2cb01-a566-4c30-baf2-193b411873c9.png">
   <br>The effect of normalizing data

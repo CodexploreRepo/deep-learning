@@ -9,6 +9,31 @@
   - `lr=0.1` the loss significantly increase from 0.6 to 56
   - `lr=0.001` the loss is reduced, so can start with slow lr and increase
 ### Optimizer
+#### SGD Optimiser
+- The SGD or Stochastic Gradient Optimizer is an optimizer in which the weights are updated for each training sample or a small subset of data.
+- Pytorch Syntax
+  - **params** (iterable) — These are the parameters that help in the optimization.
+  lr (float) — This parameter is the learning rate
+  - **momentum** (float, optional) — Here we pass the momentum factor
+  - **weight_decay** (float, optional) — This argument is containing the weight decay
+  - **dampening** (float, optional) — To dampen the momentum, we use this parameter
+```Python
+torch.optim.SGD(params, lr=<required parameter>, momentum=0, dampening=0, weight_decay=0, nesterov=False)
+```
+#### Adam Optimiser
+- Adam Optimizer uses both momentum and adaptive learning rate for better convergence. This is one of the most widely used optimizer for practical purposes for training neural networks.
+- Pytorch Syntax
+  - **params** (`Union[Iterable[Tensor], Iterable[Dict[str, Any]]]`) – These are the iterable parameters that help in optimization
+  - **lr** (float) – Learning rate helping optimization (default: 1e-3)
+  - **betas** (`Tuple[float, float]`) – This parameter is used for calculating and running the averages for gradient (default: (0.9, 0.999))
+  - **beta3** (float) – Smoothing coefficient (default: 0.9999)
+  - **eps** (float) – For improving the numerical stability (default: 1e-8)
+  - **weight_decay** (float) – For adding the weight decay (L2 penalty) (default: 0)
+```Python
+torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
+```
+
+#### Parameters
 
 ## Model Architecture
 - **Batch Norm** layer helps improve model performance

@@ -5,9 +5,8 @@
   - Choose `batch_size = 4`: model is learning quite slow, and loss not reduced much
   - Choose `batch_size = 64, 128`: model is learning quite fast, and the loss reduced faster
 ### Learning Rate
-- Learning rate:
-  - `lr=0.1` the loss significantly increase from 0.6 to 56
-  - `lr=0.001` the loss is reduced, so can start with slow lr and increase
+- `lr=0.1` the loss significantly increase from 0.6 to 56
+- `lr=0.001` the loss is reduced, so can start with slow lr and increase
 ### Optimizer
 #### SGD Optimiser
 - The SGD or Stochastic Gradient Optimizer is an optimizer in which the weights are updated for each training sample or a small subset of data.

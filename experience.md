@@ -44,8 +44,6 @@ torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumul
 ```
 
 
-
-
 ## Model Architecture
 ### Layers
 - **Batch Norm** layer helps improve model performance
@@ -60,7 +58,7 @@ torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumul
 ```Python
 # Define the normal transformations to be applied to the test data
 transform = transforms.Compose([
-    transforms.ToTensor(),
+    transforms.ToTensor(), # convert from [0,255] to [0,1] & to Tensor
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 

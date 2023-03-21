@@ -32,11 +32,26 @@ torch.optim.SGD(params, lr=<required parameter>, momentum=0, dampening=0, weight
 ```Python
 torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
 ```
+#### Adagrad Optimiser
+- Adaptive Gradient Algorithm (Adagrad) is an algorithm for gradient-based optimization where each parameter has its own learning rate that improves performance on problems with sparse gradients.
+- Pytorch Syntax
+  - **params** (`Union[Iterable[Tensor], Iterable[Dict[str, Any]]]`) – These are the iterable parameters that help in optimization
+  - **lr** (float) – Learning rate helping optimization (default: 1e-3)
+  - **lr_decay** (float, optional) – learning rate decay (default: 0)
+  - **eps** (float) – For improving the numerical stability (default: 1e-8)
+  - **weight_decay** (float) – For adding the weight decay (L2 penalty) (default: 0)
+```Python
+torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumulator_value=0, eps=1e-10)
+```
 
-#### Parameters
+
+
 
 ## Model Architecture
+### Layers
 - **Batch Norm** layer helps improve model performance
+### Weights
+- You can initialize the weights of the model
 ## Computer Vision
 ### Image
 #### Data Augmentation

@@ -43,7 +43,6 @@ torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0
 torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumulator_value=0, eps=1e-10)
 ```
 
-
 ## Model Architecture
 ### Layers
 - **Batch Norm** layer helps improve model performance
@@ -59,7 +58,7 @@ torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumul
 # Define the normal transformations to be applied to the test data
 transform = transforms.Compose([
     transforms.ToTensor(), # convert from [0,255] to [0,1] & to Tensor
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # data normalization
 ])
 
 
@@ -68,9 +67,19 @@ augmented_transform = transforms.Compose([
       transforms.RandomCrop(32, padding=4),
       transforms.RandomHorizontalFlip(),
       # transforms.ColorJitter(), # not good as the above two RandomCrop & RandomHorizontalFlip alone
-      transforms.ToTensor(),
+      transforms.ToTensor(), # convert from [0,255] to [0,1] & to Tensor
       transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
 ])
+
+# Load the CIFAR-10 dataset without transformations
+trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
+                                        download=True, transform=transform)
+
+# Load the CIFAR-10 dataset and apply transformations
+augmented_trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
+                                        download=True, transform=augmented_transform)
+# Combine the original CIFAR-10 dataset with the augmented dataset to create a larger dataset
+combined_augmented_trainset = torch.utils.data.ConcatDataset([trainset, augmented_trainset])
 ```
 #### Convolution Layer
 - Filter Size: the smaller the better (3x3 filter size yield a better accuracy then 7x7 one)

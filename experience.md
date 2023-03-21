@@ -1,5 +1,20 @@
 # Deep Learning Experience
 ## Training Parameters
+### Sampling for Faster Parameters & Hyper-paramters Tuning
+```Python
+# Split the dataset into training and validation sets
+import random
+trainset_size = 4000
+testset_size = 1000
+
+trainset_indices = random.sample(range(len(trainset)), trainset_size)
+testset_indices = random.sample(range(len(testset)), testset_size)
+
+# obtaining subset of data
+trainset_subset = torch.utils.data.Subset(trainset, trainset_indices)
+augmented_trainset_subset = torch.utils.data.Subset(augmented_trainset, trainset_indices)
+testset_subset = torch.utils.data.Subset(testset, testset_indices)
+```
 ### Batch Size 
 - Batch size: depends on the dataset
   - Choose `batch_size = 4`: model is learning quite slow, and loss not reduced much

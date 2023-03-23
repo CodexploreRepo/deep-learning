@@ -79,6 +79,7 @@ transform = transforms.Compose([
 
 # Define the transforms for data augmentation to be applied to the train data
 augmented_transform = transforms.Compose([
+      transforms.ToPILImage(), # added in if the image is in Numpy format, so need to convert to PIL for operations like crop, flip to work
       transforms.RandomCrop(32, padding=4),
       transforms.RandomHorizontalFlip(),
       # transforms.ColorJitter(), # not good as the above two RandomCrop & RandomHorizontalFlip alone

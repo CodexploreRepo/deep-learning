@@ -1,11 +1,8 @@
 # Computer Vision
 
 ## 1. Datasets
-
 ### 1.1. Dataset types
-
 #### Images
-
 - Rank-4 tensors of shape `(samples, height, width, channels)`
   - where each sample is a 2D grid of pixels, and each pixel is represented by a vector of values (“channels”)
 - Color:
@@ -19,7 +16,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/64508435/222752853-7b4f9bce-174c-4f54-8c65-4016062f46b0.png"><br>A rank-4 image data tensor</p>
 
 #### Video
-
 - A video can be understood as a sequence of frames, each frame being a color image (a rank-3 tensor `(height, width, color_ depth)`)
 - Rank-5 tensors of shape `(samples, frames, height, width, channels)`
   - where each sample is a sequence (of length frames) of images
@@ -42,7 +38,7 @@
 
 # 2. Convolution Neural Network
 ## 2.1. Layer Pattern
-The most common form of a ConvNet architecture
+The most common form of a ConvNet architecture:
 - Stacks a few CONV-RELU layers, follows them with POOL layers,
 - And repeats this pattern until the image has been merged spatially to a small size.
 - At some point, it is common to transition to fully-connected layers

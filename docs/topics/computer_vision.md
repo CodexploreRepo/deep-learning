@@ -34,6 +34,7 @@
 | ---- | ---- | ----------- | -------- |
 | **[CIFAR-10](https://www.kaggle.com/c/cifar-10)** a subset of CIFAR-100             | a subset of the 80 million tiny images dataset and consists of 60,000 32x32 color images containing one of 10 object classes, with 6000 images per class | CIFAR-10 is an established computer-vision dataset used for object recognition. It is a subset of the 80 million tiny images dataset and consists of 60,000 32x32 color images containing one of 10 object classes, with 6000 images per class. It was collected by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton. | airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and truck |
 | **[IAM](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database)**            |                                                                                                                                                          | contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.                                                                                                                                        |
+| **[ImageNet](https://paperswithcode.com/dataset/imagenet)**            |                                                                                                                                                          | The ImageNet project is a large visual database designed for use in visual object recognition software research. More than 14 million images have been hand-annotated by the project | For object detection and image classification at large scale |                                                                                   
 | **[MNIST](https://keras.io/examples/vision/mnist_convnet/)**                        | 60,000 training images, plus 10,000 test images                                                                                                          | Assembled by the National Institute of Standards and Technology (the NIST in MNIST) in the 1980s                                                                                                                                                                                                                      | grayscale images of handwritten digits (28 × 28 pixels) into their 10 categories (0 through 9) |
 | **[EMNIST (Extened MNIST)](https://keras.io/examples/vision/mnist_convnet/)**       |                                                                                                                                                          | [EMNIST (an extension of MNIST to handwritten letters)](https://arxiv.org/abs/1702.05373v1) **handwritten character digits** (letters and digits) and that shares the same image structure as `MNIST`, derived from the NIST Special Database 19 and converted to a 28x28 pixel image format and dataset structure.  | `emnist/letters`, `emnist/digits`                                                              |
 | **[K-MNIST (Kuzushiji-MNIST)](https://www.tensorflow.org/datasets/catalog/kmnist)** |                                                                                                                                                          | Grayscale images of Japanese handwritten. Since MNIST restricts us to 10 classes, we chose one character to represent each of the 10 rows of Hiragana when creating Kuzushiji-MNIST. digits                                                                                                                           |                                                                                                |     |
@@ -41,6 +42,7 @@
 
 # 2. Convolution Neural Network
 ## 2.1. The Evolution of Architecture
+Keyword: batch normalization, 1x1 convolution, average pooling
 ### 2.1.1. LeNet
 - Yann Lecun's LeNet-5 (“Gradient-based learning applied to document recognition”) model was developed in 1998 to identify handwritten digits for zip code recognition in the postal service.
 - This pioneering model largely introduced the convolutional neural network as we know it today
@@ -69,3 +71,10 @@
 <img width="550" alt="Screenshot 2023-04-01 at 17 26 59" src="https://user-images.githubusercontent.com/64508435/229277924-bdcc88a0-08b7-436e-9477-295ab9323121.png"><br>1x1 convolutions are used to reduce the input channel depth<br>
 <img width="750" alt="Screenshot 2023-04-01 at 17 31 01" src="https://user-images.githubusercontent.com/64508435/229278105-cda9483d-7542-4dab-8a23-466ed94be877.png"><br>Number of Parameters
 </p>
+
+### 2.1.4. Resnet
+- Residual Network developed by Kaiming He et al. was the winner of ILSVRC 2015. It features special **skip connections** and a heavy use of **batch normalization**.
+- Intermediate layers of a block learn a residual function with reference to the block input.
+- ResNets are currently by far state of the art Convolutional Neural Network models and are the default choice for using ConvNets in practice.
+<p align="center">
+<img width="850" alt="Screenshot 2023-04-01 at 17 35 34" src="https://user-images.githubusercontent.com/64508435/229278292-2d0b9399-d6de-4ded-849a-59b77ef0e417.png"></p>

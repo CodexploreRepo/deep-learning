@@ -71,8 +71,17 @@ Keyword: batch normalization, 1x1 convolution, average pooling
 <img width="550" alt="Screenshot 2023-04-01 at 17 26 59" src="https://user-images.githubusercontent.com/64508435/229277924-bdcc88a0-08b7-436e-9477-295ab9323121.png"><br>1x1 convolutions are used to reduce the input channel depth<br>
 <img width="750" alt="Screenshot 2023-04-01 at 17 31 01" src="https://user-images.githubusercontent.com/64508435/229278105-cda9483d-7542-4dab-8a23-466ed94be877.png"><br>Number of Parameters
 </p>
+### 2.1.5. MobileNet
+- The MobileNet model is based on depth-wise separable convolutions which is a form of factorized convolutions which factorize a standard convolution into
+  - a depthwise convolution and
+  - a 1x1 convolution called a **pointwise convolution**.
+<p align="center"><img width="500" alt="Screenshot 2023-04-01 at 17 41 02" src="https://user-images.githubusercontent.com/64508435/229278539-89d1bdb8-0e1d-4995-bb91-c4fcec5c0f42.png"></p>
 
-### 2.1.4. Resnet
+### 2.1.6. EfficientNet
+- Empirical study shows that it is critical to balance all dimensions of network width/depth/resolution, and surprisingly such balance can be achieved by simply scaling each of them with constant ratio.
+<p align="center"><img width="1064" alt="Screenshot 2023-04-01 at 17 41 54" src="https://user-images.githubusercontent.com/64508435/229278581-0ddab32b-b98d-4d52-997d-39119342086a.png"></p>
+
+### 2.1.7. Resnet
 - Residual Network developed by Kaiming He et al. was the winner of ILSVRC 2015. It features special **skip connections** and a heavy use of **batch normalization**.
 - Intermediate layers of a block learn a residual function with reference to the block input.
 - ResNets are currently by far state of the art Convolutional Neural Network models and are the default choice for using ConvNets in practice.

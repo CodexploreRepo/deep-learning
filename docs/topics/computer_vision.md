@@ -42,6 +42,30 @@
 # 2. Convolution Neural Network
 ## 2.1. The Evolution of Architecture
 ### 2.1.1. LeNet
-- Yann Lecun's LeNet-5 model was developed in 1998 to identify handwritten digits for zip code recognition in the postal service.
+- Yann Lecun's LeNet-5 (“Gradient-based learning applied to document recognition”) model was developed in 1998 to identify handwritten digits for zip code recognition in the postal service.
 - This pioneering model largely introduced the convolutional neural network as we know it today
-- The subsampling layers use a form of average pooling.
+- The subsampling layers use a form of `average pooling`.
+<p align="center"><img width="850" alt="Screenshot 2023-04-01 at 17 14 46" src="https://user-images.githubusercontent.com/64508435/229277321-23bf5c05-17ab-4e96-a16c-00521e2cd058.png"></p>
+
+### 2.1.2. AlexNet
+- The first work that popularized CNN in Computer Vision was the AlexNet, developed by Alex Krizhevsky, Ilya Sutskever and Geoffrey Hinton in 2012
+- The Network had a very similar architecture to LeNet, but was deeper, bigger
+- Featured Convolutional Layers stacked on top of each other (previously it was **common to only have a single CONV layer always immediately followed by a POOL layer**)
+<p align="center">
+<img width="800" alt="Screenshot 2023-04-01 at 17 21 18" src="https://user-images.githubusercontent.com/64508435/229277635-9577359f-f1e1-45de-91c5-05e995dd9ae4.png"></p>
+
+### 2.1.3. VGGNet
+- Main contribution was in showing that the depth of the network is a critical component for good performance, and is developed in 2014 by Karen Simonyan and Andrew Zisserman
+- At the time of its introduction, this model was considered to be very deep
+<p align="center"><img width="600" alt="Screenshot 2023-04-01 at 17 23 00" src="https://user-images.githubusercontent.com/64508435/229277725-181d89d0-b154-419a-9bbe-df7f89351cca.png"></p>
+
+### 2.1.4. GoogleNet
+- Introduced in 2014 by Google, the main contribution was the development of an **Inception Module** that dramatically reduced the number of parameters in the network (4M, compared to AlexNet with 60M)
+  - A set of 1x1, 3x3, and 5x5 filters which can learn to extract features at different scales from the input
+  - *1x1 convolutions are used to reduce the input channel depth*
+- Additionally, this paper uses Average Pooling instead of Fully Connected layers at the top of the ConvNet, eliminating a large amount of parameters that do not seem to matter much
+<p align="center">
+<img width="900" alt="Screenshot 2023-04-01 at 17 24 53" src="https://user-images.githubusercontent.com/64508435/229277822-fd8872ba-2558-420f-adce-7f56d3f1585a.png"><br>Inception Module in GoogleNet<br>
+<img width="550" alt="Screenshot 2023-04-01 at 17 26 59" src="https://user-images.githubusercontent.com/64508435/229277924-bdcc88a0-08b7-436e-9477-295ab9323121.png"><br>1x1 convolutions are used to reduce the input channel depth<br>
+<img width="750" alt="Screenshot 2023-04-01 at 17 31 01" src="https://user-images.githubusercontent.com/64508435/229278105-cda9483d-7542-4dab-8a23-466ed94be877.png"><br>Number of Parameters
+</p>

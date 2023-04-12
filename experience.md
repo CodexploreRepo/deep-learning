@@ -17,8 +17,12 @@ testset_subset = torch.utils.data.Subset(testset, testset_indices)
 ```
 ### Batch Size 
 - Batch size: depends on the dataset
-  - Choose `batch_size = 4`: model is learning quite slow, and loss not reduced much
-  - Choose `batch_size = 64, 128`: model is learning quite fast, and the loss reduced faster
+  - From small to bigger:
+    - Choose `batch_size = 4`: model is learning quite slow, and loss not reduced much
+    - Choose `batch_size = 64, 128`: model is learning quite fast, and the loss reduced faster
+  - From bigger to smaller:
+    - Choose `batch_size = 256`: val_accuracy & val_loss is fluctuating
+    - Choose `batch_size = 128 -> 64`: val_accuracy start improving
 ### Learning Rate
 - `lr=0.1` the loss significantly increase from 0.6 to 56
 - `lr=0.001` the loss is reduced, so can start with slow lr and increase

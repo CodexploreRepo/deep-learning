@@ -34,7 +34,10 @@ testset_subset = torch.utils.data.Subset(testset, testset_indices)
 ### Learning Rate
 - `lr=0.1` the loss significantly increase from 0.6 to 56
 - `lr=0.001` the loss is reduced, so can start with slow lr and increase
-- **Learning Rate Scheduler**: to reduce the learning rate when the loss starts flattening to help model to learn if it stucks local minimum
+- **Learning Rate Scheduler**:to reduce the learning rate when the loss starts flattening to help model to learn if it stucks local minimum
+  - Observation: longer schedule improves the final performance of the network
+  - Methodology: use a learning rate schedule in which we ramp-up, hold, then exponentially decay the learning rate until it reaches 1/100 of its maximum value
+  - Conclusion: The learning rate schedule turns out to be an *important factor* in determining the performance of ASR networks, especially so when *augmentation is present*.
 ```Python
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode="max", factor=0.5, patience=2

@@ -1,4 +1,12 @@
-# Deep Learning Experience
+# Deep Learning Daily Knowledge
+# Day 2
+## Model Architecture
+### Layers
+- **Batch Norm** layer helps improve model performance
+- **Drop Out** to reduce the overfitting in the training data
+### Weights
+- You can initialize the weights of the model
+# Day 1
 ## Training Parameters
 ### Sampling for Faster Parameters & Hyper-paramters Tuning
 ```Python
@@ -26,6 +34,12 @@ testset_subset = torch.utils.data.Subset(testset, testset_indices)
 ### Learning Rate
 - `lr=0.1` the loss significantly increase from 0.6 to 56
 - `lr=0.001` the loss is reduced, so can start with slow lr and increase
+- **Learning Rate Scheduler**: to reduce the learning rate when the loss starts flattening to help model to learn if it stucks local minimum
+```Python
+scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, mode="max", factor=0.5, patience=2
+    )
+```
 ### Optimizer
 #### SGD Optimiser
 - The SGD or Stochastic Gradient Optimizer is an optimizer in which the weights are updated for each training sample or a small subset of data.
@@ -62,11 +76,7 @@ torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0
 torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumulator_value=0, eps=1e-10)
 ```
 
-## Model Architecture
-### Layers
-- **Batch Norm** layer helps improve model performance
-### Weights
-- You can initialize the weights of the model
+
 ## Computer Vision
 ### Image
 #### Data Augmentation

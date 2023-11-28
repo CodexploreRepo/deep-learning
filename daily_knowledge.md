@@ -1,5 +1,7 @@
 # Deep Learning Daily Knowledge
 # Day 2
+## GPU on Mac
+- In the **Activity Monitor** app  on your Mac, choose `Window > GPU History`.
 ## Model Architecture
 ### Layers
 - **Batch Norm** layer helps improve model performance

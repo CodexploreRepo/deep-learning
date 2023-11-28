@@ -1,5 +1,7 @@
 # Deep Learning Daily Knowledge
 # Day 2
+## Experiment Tracking
+- [Experiment Tracking with Weights and Biases](https://www.kaggle.com/code/ayuraj/experiment-tracking-with-weights-and-biases/notebook)
 ## GPU on Mac
 - In the **Activity Monitor** app  on your Mac, choose `Window > GPU History`.
 ## Model Architecture

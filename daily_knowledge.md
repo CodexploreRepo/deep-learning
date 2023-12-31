@@ -1,18 +1,21 @@
 # Deep Learning Daily Knowledge
-# Day 2
-## Experiment Tracking
+## Day 2
+### Training
+### Experiment Tracking
 - [Experiment Tracking with Weights and Biases](https://www.kaggle.com/code/ayuraj/experiment-tracking-with-weights-and-biases/notebook)
-## GPU on Mac
+- HuggingFace's `Trainer` class already include W&B tracking
+### GPU on Mac
 - In the **Activity Monitor** app  on your Mac, choose `Window > GPU History`.
-## Model Architecture
-### Layers
+- Device: `mps`
+### Model Architecture
+#### Layers
 - **Batch Norm** layer helps improve model performance
 - **Drop Out** to reduce the overfitting in the training data
 ### Weights
 - You can initialize the weights of the model
-# Day 1
-## Training Parameters
-### Sampling for Faster Parameters & Hyper-paramters Tuning
+## Day 1
+### Training Parameters
+#### Sampling for Faster Parameters & Hyper-paramters Tuning
 ```Python
 # Split the dataset into training and validation sets
 import random
@@ -27,7 +30,7 @@ trainset_subset = torch.utils.data.Subset(trainset, trainset_indices)
 augmented_trainset_subset = torch.utils.data.Subset(augmented_trainset, trainset_indices)
 testset_subset = torch.utils.data.Subset(testset, testset_indices)
 ```
-### Batch Size 
+#### Batch Size 
 - Batch size: depends on the dataset
   - From small to bigger:
     - Choose `batch_size = 4`: model is learning quite slow, and loss not reduced much
@@ -35,7 +38,7 @@ testset_subset = torch.utils.data.Subset(testset, testset_indices)
   - From bigger to smaller:
     - Choose `batch_size = 256`: val_accuracy & val_loss is fluctuating
     - Choose `batch_size = 128 -> 64`: val_accuracy start improving
-### Learning Rate
+#### Learning Rate
 - `lr=0.1` the loss significantly increase from 0.6 to 56
 - `lr=0.001` the loss is reduced, so can start with slow lr and increase
 - **Learning Rate Scheduler**:to reduce the learning rate when the loss starts flattening to help model to learn if it stucks local minimum
@@ -47,8 +50,8 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode="max", factor=0.5, patience=2
     )
 ```
-### Optimizer
-#### SGD Optimiser
+#### Optimizer
+##### SGD Optimiser
 - The SGD or Stochastic Gradient Optimizer is an optimizer in which the weights are updated for each training sample or a small subset of data.
 - Pytorch Syntax
   - **params** (iterable) — These are the parameters that help in the optimization.
@@ -59,7 +62,7 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(
 ```Python
 torch.optim.SGD(params, lr=<required parameter>, momentum=0, dampening=0, weight_decay=0, nesterov=False)
 ```
-#### Adam Optimiser
+##### Adam Optimiser
 - Adam Optimizer uses both momentum and adaptive learning rate for better convergence. This is one of the most widely used optimizer for practical purposes for training neural networks.
 - Pytorch Syntax
   - **params** (`Union[Iterable[Tensor], Iterable[Dict[str, Any]]]`) – These are the iterable parameters that help in optimization
@@ -71,7 +74,7 @@ torch.optim.SGD(params, lr=<required parameter>, momentum=0, dampening=0, weight
 ```Python
 torch.optim.Adam(params, lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
 ```
-#### Adagrad Optimiser
+##### Adagrad Optimiser
 - Adaptive Gradient Algorithm (Adagrad) is an algorithm for gradient-based optimization where each parameter has its own learning rate that improves performance on problems with sparse gradients.
 - Pytorch Syntax
   - **params** (`Union[Iterable[Tensor], Iterable[Dict[str, Any]]]`) – These are the iterable parameters that help in optimization
@@ -84,9 +87,9 @@ torch.optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, initial_accumul
 ```
 
 
-## Computer Vision
-### Image
-#### Data Augmentation
+### Computer Vision
+#### Image
+##### Data Augmentation
 - Tip 1: training process with the augmentations has a better result than withoutaugmentations
 - Tip 2: need to find the best combination of augmentations, stacking a lot of augmentations do not guarantee yielding a better result.
 

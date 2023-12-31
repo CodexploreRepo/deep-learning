@@ -1,6 +1,13 @@
 # Deep Learning Daily Knowledge
 ## Day 2
-### Training
+### Training Debug
+- Binary Classification: Accuracy & Loss of Validation during traininig is approach 90% and 0.001 respectively, but the trained model when doing inferencing only yield `"negative"` class
+  - Root Cause: using `load_dataset(split='"train[:10%]"`, it only contains the `"negative"` class in both the training and validation set.
+  - Lesson Learnt: always check the distribution of positive & negative classes in the training and test sets before training.
+  ```Python
+  # display % of training data with label=1
+  np.array(dataset['train']['label']).sum()/len(dataset['train']['label'])
+  ```
 ### Experiment Tracking
 - [Experiment Tracking with Weights and Biases](https://www.kaggle.com/code/ayuraj/experiment-tracking-with-weights-and-biases/notebook)
 - HuggingFace's `Trainer` class already include W&B tracking
@@ -11,7 +18,7 @@
 #### Layers
 - **Batch Norm** layer helps improve model performance
 - **Drop Out** to reduce the overfitting in the training data
-### Weights
+#### Weights
 - You can initialize the weights of the model
 ## Day 1
 ### Training Parameters

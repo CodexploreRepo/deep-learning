@@ -68,7 +68,7 @@ testset_subset = torch.utils.data.Subset(testset, testset_indices)
 
 - Experience: need to determine the optimizer that is suitable for the dataset first before choosing the learning rate, as different optimizer will work well with different learning rate.
   - **SGD** default `learning_rate=0.01`
-  - **Adam** default `learning_rate=0.001`
+  - **Adam** default `learning_rate=0.001` a fast and efficient optimizer
     - Note: Have to set a very small learning rate `lr=1e-4` so the loss won't begin to diverge after decrease to a point.
     - It's very useful to Adam with learning rate decay. However, be careful when using weight decay with the vanilla Adam optimizer, as it appears that the vanilla Adam formula is wrong when using weight decay
   - **AdamW**: use the AdamW variant when you want to use Adam with weight decay.
